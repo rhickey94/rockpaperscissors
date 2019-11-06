@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let computerPlay = () => {
+            let options = ["rock", "scissors", "paper"];
+            return options[Math.floor(Math.random() * Math.floor(3))]
+        }
+
+        function playRound(playerSelection, computerSelection) {
+            playerSelection.toLowerCase();
+
+            if (playerSelection === "rock" && computerSelection === "scissors") {
+                return "You win! Rock beats Scissors"
+            } else if (playerSelection === "scissors" && computerSelection === "paper") {
+                return "You win! Scissors beats Paper"
+            } else if (playerSelection === "paper" && computerSelection === "rock") {
+                return "You win! Paper beats Rock"
+            } else if (playerSelection === computerSelection) {
+                return "Tie!"
+            } else {
+                return `You lose! ${computerSelection} beats ${playerSelection}`
+            }
+        }
+
+        function game() {
+            playerChoice = prompt("Choose rock, paper, or scissors!");
+            return playRound(playerChoice, computerPlay());
+        }
+        
+    </script>
+</body>
+</html>
