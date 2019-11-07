@@ -8,32 +8,60 @@
 </head>
 <body>
     <script>
+        let playerScore = 0;
+        let computerScore = 0;
+        let round = 0;
+
         let computerPlay = () => {
-            let options = ["rock", "scissors", "paper"];
-            return options[Math.floor(Math.random() * Math.floor(3))]
+            const options = ["rock", "scissors", "paper"];
+            return options[Math.floor(Math.random() * Math.floor(3))];
+        }
+
+        let playerLosesRound = () => {
+            console.log("You lose this round!");
+            computerScore++;
+        }
+
+        let playerWinsRound = () => {
+            console.log("You win this round!");
+            playerScore++;
+        }
+
+        let roundDraw = () => {
+            console.log("Draw!");
         }
 
         function playRound(playerSelection, computerSelection) {
             playerSelection.toLowerCase();
 
             if (playerSelection === "rock" && computerSelection === "scissors") {
-                return "You win! Rock beats Scissors"
+                playerWinsRound();
             } else if (playerSelection === "scissors" && computerSelection === "paper") {
-                return "You win! Scissors beats Paper"
+                playerWinsRound();
             } else if (playerSelection === "paper" && computerSelection === "rock") {
-                return "You win! Paper beats Rock"
+                playerWinsRound();
             } else if (playerSelection === computerSelection) {
-                return "Tie!"
+                roundDraw();
             } else {
-                return `You lose! ${computerSelection} beats ${playerSelection}`
+                playerLosesRound();
             }
         }
 
         function game() {
-            playerChoice = prompt("Choose rock, paper, or scissors!");
-            return playRound(playerChoice, computerPlay());
+            while (round < 5) {
+                playerChoice = prompt("Choose rock, paper, or scissors!");
+                playRound(playerChoice, computerPlay())
+                round++;
+            }
+
+            if (playerScore > computerScore) {
+                console.log("You win the game!")
+            } else {
+                console.log("You lose!")
+            }
         }
         
+        game()
     </script>
 </body>
 </html>
