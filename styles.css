@@ -1,0 +1,56 @@
+.header {
+    font-size: 5rem;
+    text-align: center;
+    background-color: lightblue;
+    padding: 50px;
+}
+
+body {
+    background-color: lightcoral;
+}
+
+.container {
+    height: 100%;
+}
+
+.scoreboard {
+    border: 1px solid black;
+    width: 200px;
+    margin: 50px auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.buttons {
+    width: 100%;
+    margin: 10px auto 50px auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+.btn {
+    width: 100px;
+    height: 2rem;
+}
+
+.display {
+    text-align: center;
+    margin: 0 auto;
+    height: 70px;
+}
+
+.badge {
+    background-color: lightgreen;
+    width: 60px;
+    text-align: center;
+}
+
+.user-prompt {
+    text-align: center;
+}
+
+.result {
+    margin: 50px auto;
+    text-align: center;
+    font-size: 3rem;
+}
