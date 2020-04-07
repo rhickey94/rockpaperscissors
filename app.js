@@ -75,6 +75,8 @@ function gameEnd() {
 
 function newGame() {
     buttons.forEach(button => button.removeAttribute("disabled"));
+    playerScore = 0;
+    computerScore = 0;
     playerScoreDisplay.textContent = "0";
     computerScoreDisplay.textContent = "0";
     userPrompt.textContent = "Make your move!";
