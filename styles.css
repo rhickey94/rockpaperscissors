@@ -1,5 +1,5 @@
 .header {
-    font-size: 5rem;
+    font-size: 3rem;
     text-align: center;
     background-color: lightblue;
     padding: 50px;
@@ -16,7 +16,7 @@ body {
 .scoreboard {
     border: 1px solid black;
     width: 200px;
-    margin: 50px auto;
+    margin: 30px auto;
     display: flex;
     justify-content: space-between;
 }
@@ -57,9 +57,9 @@ body {
 }
 
 .result {
-    margin: 50px auto;
+    margin: 30px auto;
     text-align: center;
-    font-size: 3rem;
+    font-size: 2rem;
 }
 
 img {
