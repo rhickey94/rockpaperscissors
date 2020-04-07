@@ -6,6 +6,8 @@ const computerScoreDisplay = document.querySelector("#computer-score");
 const playerChoiceDisplay = document.querySelector("#user-choice");
 const computerChoiceDisplay = document.querySelector("#computer-choice");
 const result = document.querySelector(".result")
+const buttons = document.querySelectorAll(".btn");
+const userPrompt = document.querySelector(".user-prompt")
 
 let computerPlay = () => {
     const options = ["rock", "scissors", "paper"];
@@ -16,14 +18,14 @@ let playerLosesRound = () => {
     console.log("You lose this round!");
     computerScore++;
     computerScoreDisplay.textContent = computerScore;
-    result.textContent = "You lose!";
+    result.textContent = "You lose this round!";
 }
 
 let playerWinsRound = () => {
     console.log("You win this round!");
     playerScore++;
     playerScoreDisplay.textContent = playerScore;
-    result.textContent = "You win!"
+    result.textContent = "You win this round!"
 }
 
 let roundDraw = () => {
@@ -52,23 +54,34 @@ function playRound(event) {
 
 
 function game() {
-    // while (round < 5) {
-    //     playerChoice = prompt("Choose rock, paper, or scissors!");
-    //     playRound(playerChoice, computerPlay())
-    //     round++;
-    // }
-
-    // if (playerScore > computerScore) {
-    //     console.log("You win the game!")
-    // } else {
-    //     console.log("You lose!")
-    // }
+    if(playerScore === 3) {
+        result.textContent = "You win the game!";
+        gameEnd();
+    } else if (computerScore === 3) {
+        result.textContent = "You lose the game!";
+        gameEnd();
+    }
 }
 
-game()
+function gameEnd() {
+    buttons.forEach(button => button.setAttribute("disabled", ""));
+    const newGameBtn = document.createElement("button");
+    newGameBtn.textContent = "New Game";
+    newGameBtn.setAttribute("class", "btn");
+    userPrompt.textContent = "";
+    userPrompt.appendChild(newGameBtn);
+    newGameBtn.addEventListener("click", newGame);
+}
 
-const buttons = document.querySelectorAll(".btn");
+function newGame() {
+    buttons.forEach(button => button.removeAttribute("disabled"));
+    playerScoreDisplay.textContent = "0";
+    computerScoreDisplay.textContent = "0";
+    userPrompt.textContent = "Make your move!";
+    result.textContent = "";
+}
+
 buttons.forEach(button => {
-    button.addEventListener("click", playRound)
+    button.addEventListener("click", playRound);
+    button.addEventListener("click", game);
 });
-console.log(buttons);
